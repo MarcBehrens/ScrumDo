@@ -64,9 +64,7 @@ class InheritanceCastMixin(object):
         children = []
         # sort children into same order as parents where returned
         for pk, real_type_id in results:
-            # XXX: this control is necessary after DB crazy handling
-            if pk in pk_to_child:
-                children.append(pk_to_child[pk])
+            children.append(pk_to_child[pk])
         return children
 
 
