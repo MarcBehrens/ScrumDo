@@ -72,6 +72,12 @@ urlpatterns = patterns('',
     url(r'^usage', "projects.views.usage", name="usage"),
 )
 
+# import django-notification urls
+if "notification" in settings.INSTALLED_APPS:
+    urlpatterns += patterns('',
+        (r'^notification/', include('notification.urls')),
+    )
+    
 if settings.SERVE_MEDIA:
     urlpatterns += patterns('',
         (r'^site_media/', include('staticfiles.urls')),
