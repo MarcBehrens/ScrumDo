@@ -67,6 +67,7 @@ urlpatterns = patterns('',
     (r'^api/', include('api.urls')),
     (r'^developer/', include('developer.urls')),
     (r'^favorites/', include('favorites.urls')),
+    (r'^scrum_log/', include('scrum_log.urls')),
     # (r'^search/', include('haystack.urls')),
     url(r'^usage', "projects.views.usage", name="usage"),
 )

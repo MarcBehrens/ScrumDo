@@ -79,7 +79,8 @@ class Project(Group):
     POINT_CHOICES_MINIMAL = ( ('?', '?'), ('0', '0'),  ('1', '1'),  ('2', '2'),  ('3', '3'),  ('4', '4'), ('5', '5') )
     POINT_CHOICES_MAX = ( ('?', '?'), ('0', '0'), ('0.5','0.5'), ('1', '1'),  ('2', '2'),  ('3', '3'),   ('4', '4'), ('5', '5'),  ('6', '6'),  ('7', '7'), ('8', '8'),  ('9', '9'),  ('10', '10'), ('15', '15'), ('25', '25'), ('50', '50'), ('100', '100'), ('Inf', 'Infinite') )
     POINT_CHOICES_SIZES = ( ('?', '?'), ('1', 'XS'), ('5', 'S'), ('10','M'), ('15', 'L'),  ('25', 'XL')  )
-    POINT_RANGES = [POINT_CHOICES_FIBO, POINT_CHOICES_MINIMAL, POINT_CHOICES_MAX, POINT_CHOICES_SIZES]
+    POINT_CHOICES_HOURS = ( ('?', '?'),  ('0', '0'), ('0.5','0.5'), ('1', '1'),  ('2', '2'),  ('3', '3'), ('4', '4'), ('8', '8'), ('12', '12'), ('16', '16'), ('24', '24'), ('32', '32'), ('40', '40'), ('48', '48'), ('Inf', 'Infinite') )
+    POINT_RANGES = [POINT_CHOICES_FIBO, POINT_CHOICES_MINIMAL, POINT_CHOICES_MAX, POINT_CHOICES_SIZES, POINT_CHOICES_HOURS]
 
     VELOCITY_TYPE_AVERAGE = 0
     VELOCITY_TYPE_AVERAGE_5 = 1
