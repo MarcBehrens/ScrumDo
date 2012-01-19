@@ -74,6 +74,17 @@
 		      </select>
 		      <input class="button green" type="submit" value="Add Project">
 		</form>
+		{% ifnotequal team.name "Staff" %}
+
+		<br>
+		<br>
+		<hr>
+		<br>
+		<br>
+		<form action="{% url team_delete organization.slug team.id %}" method="POST">
+			<input id="delete_button" type="submit" style="float:right" value="Delete Team" class="button red">
+		</form>
+		{% endifnotequal %}
 	{% endisorgstaff %}
 {% endifequal %}
 
