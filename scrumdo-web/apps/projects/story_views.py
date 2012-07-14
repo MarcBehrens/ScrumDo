@@ -348,6 +348,16 @@ def reorderStory( story, before_id, after_id, iteration, field_name="rank"):
         rank += 20
 
 
+@login_required
+def clone_story( request, story_id):
+    story = get_object_or_404( Story, id=story_id )
+    read_access_or_403(story.project,request.user)
+    story.clone(story.iteration)
+    return HttpResponseRedirect(
+        reverse("iteration",
+                kwargs={'group_slug':story.project.slug,
+                        'iteration_id':story.iteration.id})
+    )
 
 
 

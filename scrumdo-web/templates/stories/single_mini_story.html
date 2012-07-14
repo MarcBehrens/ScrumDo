@@ -12,6 +12,7 @@
 
 
   <span class="storyIcons">
+    <a class="hoverDetails" href="/projects/project/{{story.project.slug}}/story/{{story.id}}/clone"><img title="Clone" src="{{STATIC_URL}}pinax/images/silk/icons/page_copy.png" /></a>
     <a class="hoverDetails" onclick="jQuery.facebox({ ajax: '/projects/project/{{story.project.slug}}/story/{{story.id}}/pretty'}, 'pretty_print'); return false;" href="/projects/project/{{story.project.slug}}/story/{{story.id}}/pretty"><img title="Quick View" src="{{STATIC_URL}}pinax/images/silk/icons/magnifier.png" /></a>
     {% notlocked story %}
     <a onclick="jQuery('#todoButtons_{{story.id}}').show(); return false;" href="#">

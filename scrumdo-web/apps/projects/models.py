@@ -389,6 +389,40 @@ class Story( models.Model ):
     tags_to_delete = []
     tags_to_add = []
 
+    CLONABLE_FIELDS = [
+        'rank',
+        'board_rank',
+        'summary',
+        'local_id',
+        'detail',
+        'points',
+        'status',
+        'category',
+        'extra_1',
+        'extra_2',
+        'extra_3'
+    ]
+
+    CLONABLE_FKFIELDS = [
+        'creator',
+        'assignee',
+        'iteration',
+        'project',
+        'status',
+        'epic'
+    ]
+
+    def clone(self, iteration):
+        kwargs = {}
+        for field in self.CLONABLE_FIELDS:
+            kwargs[field] = getattr(self, field)
+        clone = self.__class__.objects.create(**kwargs)
+        for field in self.CLONABLE_FKFIELDS:
+            setattr(clone, field, getattr(self, field))
+        clone.iteration = iteration
+        clone.save()
+        return clone
+
     @staticmethod
     def getAssignedStories(user, organization):
         projects = ProjectMember.getProjectsForUser(user,organization=organization)
